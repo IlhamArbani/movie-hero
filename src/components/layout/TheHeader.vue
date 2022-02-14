@@ -1,11 +1,17 @@
 <template>
-    <header class="w-full px-28 flex justify-between bg-gray-900 items-center backdrop-opacity-10">
-        <img src="../../assets/logo.png" class="h-10 w-10"/>
+    <header class="w-full px-28 flex justify-between bg-gray-900 items-center backdrop-opacity-10 pt-5">
+        <img src="../../assets/logo.png" class="h-10 w-10">
         <nav>
             <ul class="flex text-white">
-                <li>Movies</li>
-                <li>Tv Shows</li>
-                <li>Suggest me</li>
+                <li class="mr-2">
+                    <a href="">Movies</a>
+                </li>
+                <li class="mr-2">
+                    <a href="">Tv Show</a>
+                </li>
+                <li>
+                    <a href="">Suggest Me</a>
+                </li>
             </ul>
         </nav>
     </header>
