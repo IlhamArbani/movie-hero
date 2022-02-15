@@ -4,10 +4,7 @@
         <nav>
             <ul class="flex text-white">
                 <li class="mr-2">
-                    <a href="">Movies</a>
-                </li>
-                <li class="mr-2">
-                    <a href="">Tv Show</a>
+                    <a href="">Home</a>
                 </li>
                 <li>
                     <a href="">Suggest Me</a>

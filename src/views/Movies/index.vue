@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import MovieList from './MovieList.vue'
+import MovieList from './components/MovieList.vue'
 
 export default {
     components:{
