@@ -1,3 +1,4 @@
 export type State = {
-    detail: {}
+    detail: {},
+    suggest: {}[]
 }

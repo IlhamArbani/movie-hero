@@ -1,10 +1,9 @@
 import axios from 'axios'
 
 import { Api } from '../../const';
+import { State } from './model';
 
-type State = {
-    tvShows: {}[]
-}
+
 
 const state: State = {
     tvShows: []

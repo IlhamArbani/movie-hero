@@ -3,6 +3,10 @@ import Movies from '../views/Movies/index.vue'
 import Home from '../views/pages/Home.vue'
 import TvShows from '../views/TvShows/index.vue'
 import DetailPage from '../views/pages/DetailPage.vue'
+import SuggestMe from '../views/pages/SuggestMe.vue'
+import LoginPage from '../views/pages/LoginPage.vue'
+import DashboardPage from '../views/pages/DashboardPage.vue'
+
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,7 +19,16 @@ const router = createRouter({
         },
         {
             path: '/detail/:id', component: DetailPage
-        }
+        },
+        {
+            path: '/suggestme', component: SuggestMe
+        },
+        {
+            path: '/login', component: LoginPage
+        },
+        {
+            path: '/dashboard', component: DashboardPage
+        },
     ]
 });
 

@@ -8,7 +8,8 @@ import { State } from './model'
 import { Api } from './const'
 
 const state: State = {
-    detail: {}
+    detail: {},
+    suggest: []
 }
 
 const store = createStore({
@@ -23,16 +24,25 @@ const store = createStore({
                 .then(e => {
                     context.commit('setDetail', { value: e.data })
                 })
+        },
+        setSuggest(context: any, payload: {}) {
+            context.commit('setSuggest', { value: payload })
         }
     },
     mutations: {
         setDetail(state: State, payload: { value: {} }) {
             state.detail = payload.value
+        },
+        setSuggest(state: State, payload: { value: {} }) {
+            state.suggest = [...state.suggest, payload.value]
         }
     },
     getters: {
         detail(state: State) {
             return state.detail
+        },
+        suggests(state: State) {
+            return state.suggest
         }
     }
 })

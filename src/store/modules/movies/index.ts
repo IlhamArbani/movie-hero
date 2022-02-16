@@ -2,10 +2,9 @@ import { createStore } from "vuex";
 import axios from 'axios'
 
 import { Api } from '../../const'
+import { State } from "./model";
 
-type State = {
-    movies: {}[];
-}
+
 
 const state: State = {
     movies: []

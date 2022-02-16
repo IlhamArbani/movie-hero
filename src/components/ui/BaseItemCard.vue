@@ -5,16 +5,21 @@
             <router-link :to="`/detail/${id}`">
                 <h1 class="mt-4 mb-2 truncate text-white">{{title}}</h1>
             </router-link>
+            <SuggestButton :id="id" :title="title" :img_url="img_url"/>
         </div>
     </div>
 </template>
 
 <script>
+import SuggestButton from '../SuggestButton.vue'
 export default {
     props:{
         img_url:String,
         title:String,
         id:String
+    },
+    components:{
+        SuggestButton
     }
 }
 </script>
