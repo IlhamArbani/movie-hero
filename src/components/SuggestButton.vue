@@ -15,6 +15,10 @@ export default {
     methods:{
         setSuggest(){
             this.$store.dispatch('setSuggest',{id:this.id,title:this.title,img_url:this.img_url})
+            this.$store.dispatch('setModal',true)
+            setTimeout(() => {
+                this.$store.dispatch('setModal',false)
+            },3000)
         }
     }
 }

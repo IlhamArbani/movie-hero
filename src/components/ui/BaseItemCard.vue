@@ -5,7 +5,7 @@
             <router-link :to="`/detail/${id}`">
                 <h1 class="mt-4 mb-2 truncate text-white">{{title}}</h1>
             </router-link>
-            <SuggestButton :id="id" :title="title" :img_url="img_url"/>
+            <SuggestButton v-if="path !== '/suggestme'" :id="id" :title="title" :img_url="img_url"/>
         </div>
     </div>
 </template>
@@ -16,7 +16,8 @@ export default {
     props:{
         img_url:String,
         title:String,
-        id:String
+        id:String,
+        path:String
     },
     components:{
         SuggestButton

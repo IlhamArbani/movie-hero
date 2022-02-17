@@ -6,6 +6,7 @@ import DetailPage from '../views/pages/DetailPage.vue'
 import SuggestMe from '../views/pages/SuggestMe.vue'
 import LoginPage from '../views/pages/LoginPage.vue'
 import DashboardPage from '../views/pages/DashboardPage.vue'
+import SearchItems from '../views/SearchItems/index.vue'
 
 
 const router = createRouter({
@@ -14,7 +15,8 @@ const router = createRouter({
         {
             path: '/', component: Home, children: [
                 { path: '', component: Movies },
-                { path: 'tvshows', component: TvShows }
+                { path: 'tvshows', component: TvShows },
+                { path: 'search', component: SearchItems }
             ]
         },
         {

@@ -1,4 +1,7 @@
 export type State = {
     detail: {},
-    suggest: {}[]
+    suggest: {}[],
+    searchItems: {}[],
+    user: {},
+    modalIsOpen: boolean
 }

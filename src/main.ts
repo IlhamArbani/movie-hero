@@ -8,13 +8,15 @@ import TheHeader from './components/layout/TheHeader.vue'
 import BaseItemCard from './components/ui/BaseItemCard.vue'
 import BaseBanner from './components/ui/BaseBanner.vue'
 import Gap from './components/ui/Gap.vue'
+import BaseModal from './components/ui/BaseModal.vue';
 
 const app = createApp(App)
 
 app.component('TheHeader',TheHeader);
 app.component('BaseItemCard', BaseItemCard);
 app.component('BaseBanner', BaseBanner);
-app.component('Gap', Gap)
+app.component('Gap', Gap);
+app.component('BaseModal', BaseModal)
 
 app.use(router)
 

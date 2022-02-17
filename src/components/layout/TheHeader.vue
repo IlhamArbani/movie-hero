@@ -9,13 +9,23 @@
                 <li class="mr-2">
                     <router-link class="font-bold" to="/suggestme">Suggest me</router-link>
                 </li>
-                <li class="mr-2">
+                <li class="mr-2" v-if="!user.name">
                     <router-link class="font-bold" to="/login">Login</router-link>
                 </li>
-                <li class="mr-2">
+                <li class="mr-2" v-else>
                     <router-link class="font-bold" to="/dashboard">Dashboard</router-link>
                 </li>
             </ul>
         </nav>
     </header>
 </template>
+
+<script>
+export default {
+    computed:{
+        user(){
+            return this.$store.getters['user']
+        }
+    }
+}
+</script>

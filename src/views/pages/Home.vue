@@ -11,6 +11,6 @@ import ButtonNavigation from '../../components/ButtonNavigation.vue'
 export default {
     components:{
         ButtonNavigation
-    }
+    },
 }
 </script>

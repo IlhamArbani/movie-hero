@@ -9,7 +9,10 @@ import { Api } from './const'
 
 const state: State = {
     detail: {},
-    suggest: []
+    suggest: [],
+    searchItems: [],
+    user: {},
+    modalIsOpen: false
 }
 
 const store = createStore({
@@ -27,6 +30,22 @@ const store = createStore({
         },
         setSuggest(context: any, payload: {}) {
             context.commit('setSuggest', { value: payload })
+        },
+        searchByTitle(context: any, payload: string) {
+            console.log(payload)
+            axios.get(`${Api.url}/SearchTitle/${Api.key}/${payload}`)
+                .then(e => {
+                    context.commit('setSerchItems', { value: e.data.results })
+                })
+
+        },
+        login(context: any, payload: { username: string, password: string }) {
+            if (payload.username === 'IlhamArbani' && payload.password === 'admin') {
+                context.commit('setUser', { value: { name: 'Ilham Naufal' } })
+            }
+        },
+        setModal(context: any, payload: boolean) {
+            context.commit('setModal', { value: payload })
         }
     },
     mutations: {
@@ -35,6 +54,15 @@ const store = createStore({
         },
         setSuggest(state: State, payload: { value: {} }) {
             state.suggest = [...state.suggest, payload.value]
+        },
+        setSerchItems(state: State, payload: { value: [] }) {
+            state.searchItems = payload.value
+        },
+        setUser(state: State, payload: { value: {} }) {
+            state.user = payload.value
+        },
+        setModal(state: State, payload: { value: boolean }) {
+            state.modalIsOpen = payload.value
         }
     },
     getters: {
@@ -43,6 +71,15 @@ const store = createStore({
         },
         suggests(state: State) {
             return state.suggest
+        },
+        searchItem(state: State) {
+            return state.searchItems
+        },
+        user(state: State) {
+            return state.user
+        },
+        modalIsOpen(state: State) {
+            return state.modalIsOpen
         }
     }
 })
