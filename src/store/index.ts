@@ -1,13 +1,13 @@
-import { createStore } from "vuex";
+import Vuex, { StoreOptions } from "vuex";
 import axios from "axios";
 
-import moviesModule from './modules/movies/index'
-import tvShowsModule from './modules/TvShows/index';
+import { movies } from './modules/movies/index'
+import { tvshows } from './modules/TvShows/index';
 
-import { State } from './model'
+import { RootState } from './model'
 import { Api } from './const'
 
-const state: State = {
+const state: RootState = {
     detail: {},
     suggest: [],
     searchItems: [],
@@ -15,10 +15,10 @@ const state: State = {
     modalIsOpen: false
 }
 
-const store = createStore({
+const store: StoreOptions<RootState> = {
     modules: {
-        movies: moviesModule,
-        tvShows: tvShowsModule
+        movies,
+        tvshows
     },
     state,
     actions: {
@@ -49,39 +49,39 @@ const store = createStore({
         }
     },
     mutations: {
-        setDetail(state: State, payload: { value: {} }) {
+        setDetail(state, payload: { value: {} }) {
             state.detail = payload.value
         },
-        setSuggest(state: State, payload: { value: {} }) {
+        setSuggest(state, payload: { value: {} }) {
             state.suggest = [...state.suggest, payload.value]
         },
-        setSerchItems(state: State, payload: { value: [] }) {
+        setSerchItems(state, payload: { value: [] }) {
             state.searchItems = payload.value
         },
-        setUser(state: State, payload: { value: {} }) {
+        setUser(state, payload: { value: {} }) {
             state.user = payload.value
         },
-        setModal(state: State, payload: { value: boolean }) {
+        setModal(state, payload: { value: boolean }) {
             state.modalIsOpen = payload.value
         }
     },
     getters: {
-        detail(state: State) {
+        detail(state) {
             return state.detail
         },
-        suggests(state: State) {
+        suggests(state) {
             return state.suggest
         },
-        searchItem(state: State) {
+        searchItem(state) {
             return state.searchItems
         },
-        user(state: State) {
+        user(state) {
             return state.user
         },
-        modalIsOpen(state: State) {
+        modalIsOpen(state) {
             return state.modalIsOpen
         }
     }
-})
+}
 
-export default store;
+export default new Vuex.Store<RootState>(store);

@@ -1,3 +1,9 @@
-export type State = {
-    tvShows: {}[]
+export interface TvShowsState {
+    tvShows: [
+        {
+            id: string,
+            title: string,
+            image: string
+        }
+    ]
 }

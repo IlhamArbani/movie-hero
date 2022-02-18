@@ -1,20 +1,25 @@
-import { createStore } from "vuex";
+import { Module } from "vuex";
 import axios from 'axios'
 
 import { Api } from '../../const'
-import { State } from "./model";
+import { MoviesState } from "./model";
+import { RootState } from "../../model";
 
 
 
-const state: State = {
-    movies: []
+const state: MoviesState = {
+    movies: [{
+        id: '',
+        title: '',
+        image: ''
+    }]
 }
 
-export default {
+export const movies: Module<MoviesState, RootState> = {
     namespaced: true,
     state,
     mutations: {
-        setMovies(state: State, payload: { value: [] }) {
+        setMovies(state, payload) {
             state.movies = payload.value
         }
     },
@@ -29,7 +34,7 @@ export default {
         }
     },
     getters: {
-        getMovies(state: State) {
+        getMovies(state) {
             return state.movies
         }
     }

@@ -1,7 +1,20 @@
 <template>
     <div class="flex p-1 bg-main-color w-fit rounded-md">
-        <router-link class="w-20 h-10 rounded-md text-white focus:bg-violet-400 flex justify-center items-center" to="/">All</router-link>
-        <router-link class="w-20 h-10 rounded-md text-white focus:bg-violet-400 flex justify-center items-center" to="/">Movies</router-link>
-        <router-link class="w-20 h-10 rounded-md text-white focus:bg-violet-400 flex justify-center items-center" to="/tvshows">Tv Shows</router-link>
+        <button @click="show('all')" class="w-20 h-10 rounded-md text-white  flex justify-center items-center" :class="type === 'all' ? 'bg-violet-400': ''" to="/">All</button>
+        <button @click="show('movies')" class="w-20 h-10 rounded-md text-white  flex justify-center items-center" :class="type === 'movies' ? 'bg-violet-400': ''" to="/">Movies</button>
+        <button @click="show('tvshows')" class="w-20 h-10 rounded-md text-white  flex justify-center items-center" :class="type === 'tvshows' ? 'bg-violet-400': ''" to="/tvshows">Tv Shows</button>
     </div>
 </template>
+
+<script>
+export default {
+    props:{
+        type:String
+    },
+    methods:{
+        show(type){
+            this.$emit('show-item',type)
+        }
+    }
+}
+</script>

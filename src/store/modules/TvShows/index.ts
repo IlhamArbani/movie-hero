@@ -1,19 +1,27 @@
+import { Module } from 'vuex';
 import axios from 'axios'
 
 import { Api } from '../../const';
-import { State } from './model';
+import { TvShowsState } from './model';
+import { RootState } from '../../model';
 
 
 
-const state: State = {
-    tvShows: []
+const state: TvShowsState = {
+    tvShows: [
+        {
+            id: '',
+            title: '',
+            image: ''
+        }
+    ]
 }
 
-export default {
+export const tvshows: Module<TvShowsState, RootState> = {
     namespaced: true,
     state,
     mutations: {
-        setTvShows(state: State, payload: { value: [] }) {
+        setTvShows(state, payload) {
             state.tvShows = payload.value
         }
     },
@@ -28,7 +36,7 @@ export default {
         }
     },
     getters: {
-        getTvShows(state: State) {
+        getTvShows(state) {
             return state.tvShows
         }
     }

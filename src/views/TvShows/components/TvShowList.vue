@@ -7,11 +7,11 @@
 <script>
 export default {
     beforeCreate(){
-        this.$store.dispatch('tvShows/getTvShowItem')
+        this.$store.dispatch('tvshows/getTvShowItem')
     },
     computed:{
         tvShows(){
-            return this.$store.getters['tvShows/getTvShows']
+            return this.$store.getters['tvshows/getTvShows']
         }
     }
 }

@@ -1,4 +1,4 @@
-export type State = {
+export interface RootState {
     detail: {},
     suggest: {}[],
     searchItems: {}[],
