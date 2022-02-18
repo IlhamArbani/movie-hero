@@ -2,8 +2,8 @@
     <div class="bg-main-background px-28 pt-20">
         <BaseBanner/>
         <ButtonNavigation @show-item="setShow" :type="show"/>
-        <Movies v-if="show === 'movies' || show === 'all'"/>
-        <TvShows v-if="show === 'tvshows'"/>
+        <Movies v-show="show === 'movies' || show === 'all'"/>
+        <TvShows v-show="show === 'tvshows'"/>
     </div>
 </template>
 
