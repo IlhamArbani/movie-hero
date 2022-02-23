@@ -23,7 +23,7 @@
     </div>
 </template>
 
-<script>
+<script lang='ts'>
 import DashboardCard from '../Base/DashboardCard.vue'
 export default {
     components:{

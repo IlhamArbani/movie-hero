@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 // Import Pages
-import Home from '../views/pages/Home.vue'
-import DetailPage from '../views/pages/DetailPage.vue'
-import SuggestMe from '../views/pages/SuggestMe.vue'
-import LoginPage from '../views/pages/LoginPage.vue'
-import DashboardPage from '../views/pages/DashboardPage.vue'
+import Home from '../views/Home/index.vue'
+import DetailPage from '../views/Detail/index.vue'
+import SuggestMe from '../views/Suggest/index.vue'
+import LoginPage from '../views/Login/index.vue'
+import DashboardPage from '../views/Dashboard/index.vue'
 
 
 const router = createRouter({

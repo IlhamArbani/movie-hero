@@ -37,15 +37,27 @@
     </div>
 </template>
 
-<script>
+<script lang='ts'>
+import {computed,onBeforeMount} from 'vue';
+import {useStore} from 'vuex'
+import {useRoute} from 'vue-router'
+
 export default {
-    beforeCreate(){
-        this.$store.dispatch('getDetail',{value:this.$route.params.id})
-    },
-    computed:{
-        details(){
-            return this.$store.getters['detail']
-        }
+    setup(){
+        const store = useStore();
+        const route = useRoute();
+
+        const details = computed(function(){
+            return store.getters['detail']
+        })
+
+        onBeforeMount(function(){
+            store.dispatch('getDetail',{value:route.params.id})
+        })
+
+        console.log(details)
+
+        return {details}
     }
 }
 </script>

@@ -4,15 +4,21 @@
     </div>
 </template>
 
-<script>
+<script lang='ts'>
+import {computed,onBeforeMount} from 'vue';
+import {useStore} from 'vuex'
 export default {
-    beforeCreate(){
-        this.$store.dispatch('tvshows/getTvShowItem')
-    },
-    computed:{
-        tvShows(){
-            return this.$store.getters['tvshows/getTvShows']
-        }
+    setup(){
+        const store = useStore();
+
+        const tvShows = computed(function(){
+            return store.getters['tvshows/getTvShows']
+        })
+        onBeforeMount(function(){
+            store.dispatch('tvshows/getTvShowItem')
+        })
+
+        return{tvShows}
     }
 }
 </script>

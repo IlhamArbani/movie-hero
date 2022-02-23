@@ -10,7 +10,7 @@
     </div>
 </template>
 
-<script>
+<script lang='ts'>
 import SuggestButton from '../SuggestButton.vue'
 export default {
     props:{

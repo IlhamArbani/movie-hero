@@ -5,21 +5,26 @@
     </button>
 </template>
 
-<script>
+<script lang='ts'>
+import {useStore} from 'vuex'
 export default {
     props:{
         id:String,
         title:String,
         img_url:String
     },
-    methods:{
-        setSuggest(){
-            this.$store.dispatch('setSuggest',{id:this.id,title:this.title,img_url:this.img_url})
-            this.$store.dispatch('setModal',true)
+    setup(props){
+        const store = useStore()
+
+        function setSuggest(){
+            store.dispatch('setSuggest',{id:props.id,title:props.title,img_url:props.img_url})
+            store.dispatch('setModal',true)
             setTimeout(() => {
-                this.$store.dispatch('setModal',false)
+                store.dispatch('setModal',false)
             },3000)
         }
+
+        return{setSuggest}
     }
 }
 </script>

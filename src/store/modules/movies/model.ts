@@ -1,7 +1,7 @@
 export interface MoviesState {
-    movies: [{
+    movies: {
         id: string,
         title: string,
         image: string
-    }];
+    }[];
 }

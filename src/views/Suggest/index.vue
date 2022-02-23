@@ -18,14 +18,18 @@
 </template>
 
 <script>
+import {computed} from 'vue'
+import {useStore} from 'vuex'
+
 export default {
-    computed:{
-        suggests(){
-            return this.$store.getters['suggests']
-        }
-    },
-    mounted(){
-        console.log(this.$route.path)
+    setup(){
+        const store = useStore;
+
+        const suggests = computed(function(){
+            return store.getters['suggests']
+        })
+
+        return{suggests}
     }
 }
 </script>

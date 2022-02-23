@@ -6,15 +6,20 @@
     </div>
 </template>
 
-<script>
+<script lang='ts'>
+import {useStore} from 'vuex'
 export default {
     props:{
         type:String
     },
-    methods:{
-        show(type){
-            this.$emit('show-item',type)
+    setup(props,context){
+        const store = useStore();
+
+        function show(type:string){
+            context.emit('show-item', type)
         }
+
+        return{show}
     }
 }
 </script>

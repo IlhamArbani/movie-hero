@@ -2,7 +2,7 @@
     <TvShowList/>
 </template>
 
-<script>
+<script lang='ts'>
 import TvShowList from './components/TvShowList.vue'
 
 export default {

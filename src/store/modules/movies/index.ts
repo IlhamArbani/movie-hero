@@ -7,12 +7,12 @@ import { RootState } from "../../model";
 
 
 
-const state: MoviesState = {
-    movies: [{
-        id: '',
-        title: '',
-        image: ''
-    }]
+const state = {
+    movies: [] as {
+        id: string,
+        title: string,
+        image: string
+    }[]
 }
 
 export const movies: Module<MoviesState, RootState> = {

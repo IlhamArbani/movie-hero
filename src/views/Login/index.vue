@@ -16,12 +16,16 @@
     </div>
 </template>
 
-<script>
+<script lang='ts'>
+import {useStore} from 'vuex'
 export default {
-    methods:{
-        login(e){
-            this.$store.dispatch('login',{username:e.target.elements.username.value,password:e.target.elements.password.value})
+    setup(){
+        const store = useStore();
+        function login(e:any){
+            store.dispatch('login',{username:e.target.elements.username.value,password:e.target.elements.password.value})
         }
+
+        return{login}
     }
 }
 </script>

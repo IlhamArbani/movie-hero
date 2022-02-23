@@ -4,15 +4,25 @@
     </div>
 </template>
 
-<script>
+<script lang='ts'>
+import {onBeforeMount,computed} from 'vue'
+import {useStore} from 'vuex'
+import {useRoute} from 'vue-router'
+
 export default {
-    beforeCreate(){
-        this.$store.dispatch('searchByTitle',this.$route.query.title)
-    },
-    computed:{
-        searchItems(){
-            return this.$store.getters['searchItem']
-        }
+    setup(){
+        const store = useStore()
+        const route = useRoute()
+
+        const searchItems = computed(function(){
+            return store.getters['searchItem']
+        })
+
+        onBeforeMount(function(){
+            store.dispatch('searchByTitle', route.query.title)
+        })
+
+        return{searchItems}
     }
 }
 </script>

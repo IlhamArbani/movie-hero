@@ -2,7 +2,7 @@
     <SearcItemList/>
 </template>
 
-<script>
+<script lang='ts'>
 import SearcItemList from './components/SearchItemList.vue'
 export default {
     components:{

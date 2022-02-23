@@ -20,12 +20,19 @@
     </header>
 </template>
 
-<script>
+<script lang='ts'>
+import {computed} from 'vue'
+import {useStore} from 'vuex'
+
 export default {
-    computed:{
-        user(){
-            return this.$store.getters['user']
-        }
+    setup(){
+        const store = useStore();
+
+        const user = computed(function(){
+            return store.getters['user']
+        })
+
+        return{user}
     }
 }
 </script>

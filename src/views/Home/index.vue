@@ -7,25 +7,27 @@
     </div>
 </template>
 
-<script>
+<script lang='ts'>
 import ButtonNavigation from '../../components/ButtonNavigation.vue'
 import TvShows from '../TvShows/index.vue'
 import Movies from '../Movies/index.vue'
+
+import {ref} from 'vue'
 export default {
     components:{
         ButtonNavigation,
         TvShows,
         Movies
     },
-    data(){
-        return{
-            show:'all'
+    setup(){
+
+        const show = ref('all');
+
+        function setShow(type: string){
+            show.value = type
         }
-    },
-    methods:{
-        setShow(type){
-            this.show = type
-        }
+
+        return {show, setShow}
     }
 }
 </script>

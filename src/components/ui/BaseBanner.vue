@@ -7,23 +7,24 @@
     </div>
 </template>
 
-<script>
+<script lang='ts'>
+import {ref,computed} from 'vue'
+
 export default {
-    data(){
-        return{
-            searchInput:'',
-        }
-    },
     props:{
         title: {
             default: 'Movie Hero',
             type:String
         }
     },
-    computed:{
-        search(){
-            return {path:'/search',query:{title:this.searchInput}}
-        }
-    },
+    setup(){
+        const searchInput = ref('')
+
+        const search = computed(function(){
+            return {path:'/search',query:{title:searchInput.value}}
+        })
+
+        return{searchInput,search}
+    }
 }
 </script>

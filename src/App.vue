@@ -8,12 +8,19 @@
   </main>
 </template>
 
-<script>
+<script lang='ts'>
+import {computed} from 'vue'
+import {useStore} from 'vuex'
+
 export default {
-  computed:{
-    modalIsOpen(){
-      return this.$store.getters['modalIsOpen']
-    }
+  setup(){
+    const store = useStore()
+    
+    const modalIsOpen = computed(function(){
+      return store.getters['modalIsOpen']
+    })
+
+    return{modalIsOpen}
   }
 }
 </script>
