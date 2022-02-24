@@ -1,9 +1,7 @@
 export interface TvShowsState {
-    tvShows: [
-        {
+    tvShows: {
             id: string,
             title: string,
             image: string
-        }
-    ]
+    }[];
 }

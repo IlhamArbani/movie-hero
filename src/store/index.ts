@@ -7,7 +7,7 @@ import { tvshows } from './modules/TvShows/index';
 import { RootState } from './model'
 import { Api } from './const'
 
-const state: RootState = {
+const state = {
     detail: {},
     suggest: [],
     searchItems: [],
