@@ -11,7 +11,7 @@ const state = {
     detail: {},
     suggest: [],
     searchItems: [],
-    user: {},
+    user: { name: 'ilham' },
     modalIsOpen: false
 }
 
@@ -85,3 +85,7 @@ const store: StoreOptions<RootState> = {
 }
 
 export default new Vuex.Store<RootState>(store);
+
+export function useStore() {
+    return store
+}
