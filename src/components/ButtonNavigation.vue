@@ -7,13 +7,12 @@
 </template>
 
 <script lang='ts'>
-import {useStore} from 'vuex'
+
 export default {
     props:{
         type:String
     },
     setup(props,context){
-        const store = useStore();
 
         function show(type:string){
             context.emit('show-item', type)
