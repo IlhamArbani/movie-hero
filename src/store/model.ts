@@ -1,5 +1,5 @@
 export interface RootState {
-    detail: {},
+    detailItem: {},
     suggest: {}[],
     searchItems: {}[],
     user: {},
