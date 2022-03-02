@@ -8,7 +8,7 @@ import { RootState } from './model'
 import { Api } from './const'
 
 const state = {
-    detail: {},
+    detailItem: {},
     suggest: [],
     searchItems: [],
     user: { name: 'ilham' },
@@ -50,7 +50,7 @@ const store: StoreOptions<RootState> = {
     },
     mutations: {
         setDetail(state, payload: { value: {} }) {
-            state.detail = payload.value
+            state.detailItem = payload.value
         },
         setSuggest(state, payload: { value: {} }) {
             state.suggest = [...state.suggest, payload.value]
@@ -67,7 +67,7 @@ const store: StoreOptions<RootState> = {
     },
     getters: {
         detail(state) {
-            return state.detail
+            return state.detailItem
         },
         suggests(state) {
             return state.suggest
